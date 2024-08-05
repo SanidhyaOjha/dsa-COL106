@@ -3,6 +3,7 @@ class Maze:
         ## DO NOT MODIFY THIS FUNCTION
         ## We initialise the list with all 0s, as initially all cells are vacant
         self.grid_representation = []
+        self.m =m
         for row in range(m):
             grid_row = []
             for column in range(n):
@@ -11,13 +12,22 @@ class Maze:
     
     def add_ghost(self, x : int, y: int) -> None:
         # IMPLEMENT YOUR FUNCTION HERE
-        pass
+        self.grid_representation[x][y] = 1
     def remove_ghost(self, x : int, y: int) -> None:
         # IMPLEMENT YOUR FUNCTION HERE
-        pass
+        self.grid_representation[x][y] = 1
     def is_ghost(self, x : int, y: int) -> bool:
         # IMPLEMENT YOUR FUNCTION HERE
-        return False
+        if self.grid_representation[x][y] == 1:
+            return True
+        else:
+            return False
     def print_grid(self) -> None:
         # IMPLEMENT YOUR FUNCTION HERE
-        return False
+        resu =''
+        for i in range(self.m):
+            for j in self.grid_representation[i]:
+                resu = resu +str(j)  + ' '
+            if i != self.m-1:
+                resu += '\n'
+        print( resu)
