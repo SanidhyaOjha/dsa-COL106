@@ -15,7 +15,7 @@ class Stack:
         if not self.is_empty():
             return self._data[-1]
         else:
-            raise Empty('The stack is Empty')
+            print('The stack is Empty')
         
     def push(self, elem):
         self._data.append(elem)
@@ -24,7 +24,7 @@ class Stack:
         if not self.is_empty():
             self._data.pop()
         else:
-            raise Empty('The stack is Empty')
+            print('The stack is Empty')
     
     def display(self):
         print(self._data)
