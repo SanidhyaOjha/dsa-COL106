@@ -5,6 +5,7 @@ class Stack:
         self._data = list()
     def __len__(self) -> int:
         return len(self._data)
+    
     def is_empty(self) -> bool:
         if len(self._data) == 0:
             return True

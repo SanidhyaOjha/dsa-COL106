@@ -11,5 +11,5 @@ stack1.display()
 stack1.pop()
 stack1.display()
 stack1.pop()
-stack1.display()
+# stack1.display()
 
