@@ -3,6 +3,7 @@ class Maze:
         ## DO NOT MODIFY THIS FUNCTION
         ## We initialise the list with all 0s, as initially all cells are vacant
         self.grid_representation = []
+        self.m =m
         for row in range(m):
             grid_row = []
             for column in range(n):
