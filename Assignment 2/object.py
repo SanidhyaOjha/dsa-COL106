@@ -9,4 +9,8 @@ class Color(Enum):
 
 class Object:
     def __init__(self, object_id, size, color):
-        pass
+        self.ID = object_id
+        self.binID = None
+        self.color =color
+        self.size = size
+        self.info = [size, color, self.binID]
