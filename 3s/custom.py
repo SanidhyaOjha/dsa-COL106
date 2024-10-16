@@ -1,8 +1,9 @@
+# You can add any additional function and class you want to implement in this file
 '''
     Python file to implement the Treasure class
 '''
 
-class Treasure:
+class Treasure1:
     '''
     Class to implement a treasure
     '''
@@ -21,9 +22,9 @@ class Treasure:
         
         # DO NOT EDIT THE __init__ method
         self.id = id
-        self.size = size
+        self.orignal_size = size
         self.arrival_time = arrival_time
         self.completion_time = None
+        self.size=size
     
     # You can add more methods if required
-    

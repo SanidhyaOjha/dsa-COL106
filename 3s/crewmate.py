@@ -1,16 +1,14 @@
 '''
     Python file to implement the class CrewMate
 '''
-from heap import Heap
-from treasure import Treasure
-
+import heap
 
 class CrewMate:
     '''
     Class to implement a crewmate
     '''
     
-    def __init__(self):
+    def __init__(self,i):
         '''
         Arguments:
             None
@@ -21,8 +19,12 @@ class CrewMate:
         '''
         
         # Write your code here
-        self.counter = 0
-        self.treasury = []
+        self.id=i
+        # self.treasure=heap([])
+        self.treasure=[]
+        self.start_time=0
+        self.load=0
+        self.remaining_size=0
+        pass
     
     # Add more methods if required
-    

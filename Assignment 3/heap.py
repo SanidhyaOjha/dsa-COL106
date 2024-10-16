@@ -1,6 +1,9 @@
 '''
 Python Code to implement a heap with general comparison function
 '''
+from custom import Empty
+def comparison_function(a1,a2):
+    return a1<a2
 
 class Heap:
     '''
@@ -25,7 +28,15 @@ class Heap:
         '''
         
         # Write your code here
-        pass
+        self.comp = comparison_function
+        self.data = init_array
+
+        if len(self.data)>1:
+            self.heapify()
+
+        
+
+        
         
     def insert(self, value):
         '''
@@ -40,7 +51,8 @@ class Heap:
         '''
         
         # Write your code here
-        pass
+        self.data.append(value)
+        self.upheap(len(self.data)-1)
     
     def extract(self):
         '''
@@ -55,7 +67,12 @@ class Heap:
         '''
         
         # Write your code here
-        pass
+        if self.is_empty():
+            return None
+        self.swap(0, len(self.data)-1)
+        item = self.data.pop()
+        self.downheap(0)
+        return item
     
     def top(self):
         '''
@@ -70,6 +87,75 @@ class Heap:
         '''
         
         # Write your code here
-        pass
+        if self.is_empty():
+            return None
+        return self.data[0]
     
     # You can add more functions if you want to
+    def is_empty(self):
+        if len(self.data) == 0:
+            return True
+        return False
+    
+    def heapify(self):
+        initial = self.parent(len(self.data)-1)
+        for j in range(initial, -1,-1):
+            self.downheap(j)
+
+        
+    def upheap(self,index):
+        par = self.parent(index)
+        if index>0 and self.comp(self.data[index], self.data[par]):
+            self.swap(index, par)
+            self.upheap(par)
+
+    def downheap(self, index):
+        if self.has_left(index):
+            left = self.left(index)
+            tar = left
+            if self.has_right(index):
+                right = self.right(index)
+                if self.comp(self.data[right], self.data[left]):
+                    tar = right
+            if self.comp(self.data[tar], self.data[index]):
+                self.swap(tar, index)
+                self.downheap(tar)
+
+    def right(self, index):
+        return 2*index +2
+
+    def left(self, index):
+        return 2*index +1
+    
+    def parent(self, index):
+        return (index-1)//2
+    
+    def has_left(self, index):
+        return self.left(index) < len(self.data)
+    
+    def has_right(self, index):
+        return self.right(index) < len(self.data)
+    
+    def swap(self, i, j):
+        self.data[i], self.data[j] = self.data[j], self.data[i]
+
+if __name__ == "__main__":
+    hp = Heap(comparison_function, [])
+    hp.insert(10)
+    hp.insert(20)
+    hp.insert(30)
+    hp.insert(100)
+    hp.insert(5)
+    hp.insert(25)
+    print(hp.extract())
+    print(hp.extract())
+    print(hp.top())
+    hp.insert(70)
+    hp.insert(4)
+    print(hp.extract())
+    print(hp.extract())
+    hp.insert(1)
+    print(hp.top())
+    hp.insert(-100)
+    print(hp.top())
+    print(hp.data)

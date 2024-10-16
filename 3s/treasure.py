@@ -26,4 +26,3 @@ class Treasure:
         self.completion_time = None
     
     # You can add more methods if required
-    
